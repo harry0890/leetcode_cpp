@@ -8,9 +8,22 @@ public:
         
         sort(intervals.begin(), intervals.end(), [](const vector<int>& v1, const vector<int>& v2){
 		    return v1.front() < v2.front(); });
-        
-        res.push_back(intervals[0]);
-        
+#if 0
+	// Method1
+        int head=intervals[0][0],end=intervals[0][1];
+        for(int i=1;i<intervals.size();i++){            
+            if(end<intervals[i][0]){
+                res.push_back({head,end});
+                head=intervals[i][0];
+            }
+            if(end<intervals[i][1])
+                end=intervals[i][1];
+        }
+        res.push_back({head,end});
+#endif
+
+	// Method2
+        res.push_back(intervals[0]); 
         for(int i =1; i<intervals.size(); i++){
 
             if(res.back()[1] < intervals[i][0])
