@@ -7,7 +7,7 @@ public:
         if(intervals.empty()) return {};
         
         sort(intervals.begin(), intervals.end(), [](const vector<int>& v1, const vector<int>& v2){
-		    return v1.front() < v2.front(); });
+		    return v1.front() < v2.front(); }); // c++11 lambda expression
 #if 0
 	// Method1
         int head=intervals[0][0],end=intervals[0][1];
